@@ -19,7 +19,7 @@ ENV OTP_GRAPHS /var/otp/graphs
 RUN \
     mkdir -p /var/otp/scripting && \
     mkdir -p /var/otp/graphs/brandenburg && \
-    wget -O /var/otp/graphs/brandenburg/brb-gtfs.zip http://images.vbb.de/assets/ftp/file/1378234.zip && \
+    wget -O /var/otp/graphs/brandenburg/brb-gtfs.zip https://transitfeeds.com/p/verkehrsverbund-berlin-brandenburg/213/latest/download && \
     wget -P /var/otp/graphs/brandenburg http://download.geofabrik.de/europe/germany/brandenburg-latest.osm.pbf && \
     java -Xmx8G -jar /var/otp/otp.jar --build /var/otp/graphs/brandenburg
 
