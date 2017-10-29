@@ -1,26 +1,17 @@
-FROM debian:sid
+FROM openjdk:8-jre-alpine
 
 MAINTAINER Christian Kuntzsch <christian@kuntzsch.me>
 
-RUN \
-    apt-get update && \
-    apt-get install -y openjdk-8-jre wget
-
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
-
-RUN \
-    mkdir -p /var/otp && \
-    wget -O /var/otp/otp.jar https://repo1.maven.org/maven2/org/opentripplanner/otp/1.2.0/otp-1.2.0-shaded.jar && \
-    wget -O /var/otp/jython.jar http://search.maven.org/remotecontent?filepath=org/python/jython-standalone/2.7.0/jython-standalone-2.7.0.jar
-
 ENV OTP_BASE /var/otp
-ENV OTP_GRAPHS /var/otp/graphs
+ENV OTP_GRAPHS $OTP_BASE/graphs
 
-RUN \
-    mkdir -p /var/otp/scripting && \
-    mkdir -p /var/otp/graphs/brandenburg && \
-    wget -O /var/otp/graphs/brandenburg/brb-gtfs.zip https://transitfeeds.com/p/verkehrsverbund-berlin-brandenburg/213/latest/download && \
-    wget -P /var/otp/graphs/brandenburg http://download.geofabrik.de/europe/germany/brandenburg-latest.osm.pbf && \
+RUN set -x && \
+    apk add --no-cache ca-certificates openssl && \
+    mkdir -p $OTP_BASE/scripting $OTP_GRAPHS/brandenburg && \
+    wget -O $OTP_BASE/otp.jar https://repo1.maven.org/maven2/org/opentripplanner/otp/1.2.0/otp-1.2.0-shaded.jar && \
+    wget -O $OTP_BASE/jython.jar http://search.maven.org/remotecontent?filepath=org/python/jython-standalone/2.7.0/jython-standalone-2.7.0.jar \
+    wget -O $OTP_GRAPHS/brandenburg/brb-gtfs.zip https://transitfeeds.com/p/verkehrsverbund-berlin-brandenburg/213/latest/download && \
+    wget -P $OTP_GRAPHS/brandenburg http://download.geofabrik.de/europe/germany/brandenburg-latest.osm.pbf && \
     java -Xmx8G -jar /var/otp/otp.jar --build /var/otp/graphs/brandenburg
 
 EXPOSE 8080
