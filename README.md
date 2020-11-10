@@ -31,4 +31,8 @@ Access OpenTripPlanner at `http://localhost:8080/`.
 
 You can also run with the --analyst option to use OTP Analyst features, or run without any optional arguments to see all available command line options.
 
+## Get it from DockerHub
+
+`docker pull serge4nt/otp-ngermany:latest`
+
 
