@@ -1,0 +1,35 @@
+{
+    // Routing defaults are any public field or setter in the Java class
+    // org.opentripplanner.routing.core.RoutingRequest
+    "routingDefaults": {
+        "numItineraries": 6,
+        "walkSpeed": 2.0,
+        "stairsReluctance": 4.0,
+        "carDropoffTime": 240
+    },
+
+    "updaters": [
+        // Polling for GTFS-RT TripUpdates
+        {
+            "type": "stop-time-updater",
+            "frequencySec": 60,
+            // this is either http or file... shouldn't it default to http or guess from the presence of a URL?
+            "sourceType": "gtfs-http",
+            "url": "https://v0.berlin-gtfs-rt.transport.rest/feed",
+            "feedId": "VBB GTFS-RT"
+        },
+        {
+            "type": "stop-time-updater",
+            "frequencySec": 60,
+            // this is either http or file... shouldn't it default to http or guess from the presence of a URL?
+            "sourceType": "gtfs-http",
+            "url": "https://v0.hamburg-gtfs-rt.transport.rest/feed",
+            "feedId": "HVV GTFS-RT"
+        },
+
+        // Streaming differential GTFS-RT TripUpdates over websockets
+        {
+            "type": "websocket-gtfs-rt-updater"
+        }
+    ]
+}
