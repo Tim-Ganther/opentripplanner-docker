@@ -1,4 +1,10 @@
-# OpenTripPlanner Docker for Berlin/Brandenburg
+# OpenTripPlanner Docker for Northern Germany
+
+## Requirements
+- Docker is installed
+- Internet Connection
+- at least 16GB RAM available (24 preferred)
+- time :)
 
 ## Run OpenTripPlanner with docker-compose
 
@@ -13,12 +19,20 @@ docker-compose up -d # to run it detached in background
 
 ## Build container
 
-`docker build -t opentripplanner-brb .`
+`docker build -t otp-ngermany .`
+This takes up to 15GB of RAM and lasts about 18 minutes.
 
 ## Run container
 
-`docker run -p 80:8080 opentripplanner-brb --router brandenburg --server`
+`docker run -p 8080:8080 otp-ngermany --router ngermany --server`
+This takes up to 10GB of RAM and needs nearly 8 minutes to start.
 
-Access OpenTripPlanner at `http://localhost:80/`.
+Access OpenTripPlanner at `http://localhost:8080/`.
 
 You can also run with the --analyst option to use OTP Analyst features, or run without any optional arguments to see all available command line options.
+
+## Get it from DockerHub
+
+`docker pull serge4nt/otp-ngermany:latest`
+
+
