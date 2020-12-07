@@ -4,17 +4,6 @@
 - Docker is installed
 - Internet Connection
 - at least 16GB RAM available (24 preferred)
-- time :)
-
-## Run OpenTripPlanner with docker-compose
-
-If you have [docker-compose](https://docs.docker.com/compose/install/) installed, you can simply run from terminal
-within the project root-directory:
-
-```bash
-docker-compose up
-# OR
-docker-compose up -d # to run it detached in background
 ```
 
 ## Build container
