@@ -4,7 +4,6 @@
 - Docker is installed
 - Internet Connection
 - at least 16GB RAM available (24 preferred)
-```
 
 ## Build container
 
