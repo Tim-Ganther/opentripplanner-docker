@@ -10,8 +10,8 @@ RUN set -x && \
     mkdir -p $OTP_BASE/scripting $OTP_GRAPHS/ngermany && \
     wget -O $OTP_BASE/otp.jar https://repo1.maven.org/maven2/org/opentripplanner/otp/1.2.0/otp-1.2.0-shaded.jar && \
     wget -O $OTP_BASE/jython.jar http://search.maven.org/remotecontent?filepath=org/python/jython-standalone/2.7.0/jython-standalone-2.7.0.jar && \
-    wget -O $OTP_GRAPHS/ngermany/hvv-gtfs.zip https://transitfeeds.com/p/hamburger-verkehrsverbund-gmbh/1010/latest/download && \
-    wget -O $OTP_GRAPHS/ngermany/vbb-gtfs.zip https://transitfeeds.com/p/verkehrsverbund-berlin-brandenburg/213/20200331/download && \
+    wget -O $OTP_GRAPHS/ngermany/hvv-gtfs.zip http://daten.transparenz.hamburg.de/Dataport.HmbTG.ZS.Webservice.GetRessource100/GetRessource100.svc/6245d691-d86a-4059-85a0-a997e7857092/Upload__HVV_Rohdaten_GTFS_UebgFpl_20201204.zip && \
+    wget -O $OTP_GRAPHS/ngermany/vbb-gtfs.zip https://transitfeeds.com/p/verkehrsverbund-berlin-brandenburg/213/latest/download && \
     wget -O $OTP_GRAPHS/ngermany/db-gtfs.zip https://gtfs.de/de/feeds/de_fv/ && \
     wget -O $OTP_GRAPHS/ngermany/flixbus-gtfs.zip https://transitfeeds.com/p/flixbus/795/latest/download && \
     wget -P $OTP_GRAPHS/ngermany https://download.geofabrik.de/europe/germany/brandenburg-latest.osm.pbf && \
