@@ -5,8 +5,6 @@ MAINTAINER Tim Ganther <tim.ganther@telekom.de>
 ENV OTP_BASE /var/otp
 ENV OTP_GRAPHS $OTP_BASE/graphs
 
-COPY router-config.json $OTP_GRAPHS/ngermany/router-config.json
-
 RUN set -x && \
     apk add --no-cache ca-certificates openssl && \
     mkdir -p $OTP_BASE/scripting $OTP_GRAPHS/ngermany && \
