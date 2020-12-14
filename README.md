@@ -3,17 +3,17 @@
 ## Requirements
 - Docker is installed
 - Internet Connection
-- at least 16GB RAM available (24 preferred)
+- at least 25GB RAM available (32GB preferred)
 
 ## Build container
 
 `docker build -t otp-ngermany .`
-This takes up to 15GB of RAM and lasts about 18 minutes.
+This takes up to 32GB of RAM and lasts about 45 minutes.
 
 ## Run container
 
 `docker run -p 8080:8080 otp-ngermany --router ngermany --server`
-This takes up to 10GB of RAM and needs nearly 8 minutes to start.
+This takes up to 25GB of RAM and needs nearly 15 minutes to start.
 
 Access OpenTripPlanner at `http://localhost:8080/`.
 
